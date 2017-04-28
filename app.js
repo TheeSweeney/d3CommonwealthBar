@@ -19,19 +19,19 @@ var chart = svg.append("g")
       .classed("display", true)
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var x = d3.scale.linear()
-          .domain(d3.extent(data.AUS, function(d){
+          .domain(d3.extent(data.US, function(d){
             return d.year
           }))
           .range([0, width])
 var y = d3.scale.linear()
-          .domain([0, d3.max(data.AUS, function(d){
+          .domain([0, d3.max(data.US, function(d){
             return d.value
           })])
           .range([height, 0])
 var xAxis = d3.svg.axis()
               .scale(x)
               .orient('bottom')
-              .ticks(0)
+              .ticks(12)
 var yAxis = d3.svg.axis()
               .scale(y)
               .orient('left')
@@ -42,7 +42,7 @@ var line = d3.svg.line()
             .y(function(d){
               return y(d.value)
             })
-function plot(params){
+function plotAxes(params){
   this.append('g')
       .classed('x axis', true)
       .attr('transform','translate(0,' + height + ')')
@@ -51,9 +51,11 @@ function plot(params){
       .classed('y axis', true)
       .attr('transform','translate(0,0)')
       .call(params.axis.y)
-  
-  //enter
-  this.selectAll('.trendline')
+}
+
+function plotLine(params){
+    //enter
+  this.selectAll('.trendline' + params.Country)
       .data([params.data])
       .enter()
         .append('path')
@@ -70,10 +72,21 @@ function plot(params){
       .remove()
 }
 
-plot.call(chart, {
+plotAxes.call(chart, {
   data: data.AUS,
   axis: {
     x: xAxis,
     y: yAxis
   }
 })
+
+for( var Country in data){
+  plotLine.call(chart, {
+    country: Country,
+    data: data[Country],
+    axis: {
+      x: xAxis,
+      y: yAxis
+    }
+  })
+}
