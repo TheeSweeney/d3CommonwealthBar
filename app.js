@@ -1,16 +1,5 @@
-var data = [
-  {key: "Jelly", value: 60, rank: 1 },
-  {key: "Jelly", value: 58, rank: 2 },
-  {key: "Jelly", value: 59, rank: 3 },
-  {key: "Jelly", value: 56, rank: 4 },
-  {key: "Jelly", value: 57, rank: 5 },
-  {key: "Jelly", value: 55, rank: 6 },
-  {key: "Jelly", value: 56, rank: 7 },
-  {key: "Jelly", value: 52, rank: 8 },
-  {key: "Jelly", value: 54, rank: 9 },
-  {key: "Jelly", value: 57, rank: 10 },
-  {key: "Jelly", value: 56, rank: 11 }
-];
+
+
 var w = 800;
 var h = 450;
 var margin = {
@@ -30,12 +19,12 @@ var chart = svg.append("g")
       .classed("display", true)
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var x = d3.scale.linear()
-          .domain(d3.extent(data, function(d){
-            return d.rank
+          .domain(d3.extent(data.AUS, function(d){
+            return d.year
           }))
           .range([0, width])
 var y = d3.scale.linear()
-          .domain([0, d3.max(data, function(d){
+          .domain([0, d3.max(data.AUS, function(d){
             return d.value
           })])
           .range([height, 0])
@@ -48,7 +37,7 @@ var yAxis = d3.svg.axis()
               .orient('left')
 var line = d3.svg.line()
             .x(function(d){
-              return x(d.rank)
+              return x(d.year)
             })
             .y(function(d){
               return y(d.value)
@@ -82,7 +71,7 @@ function plot(params){
 }
 
 plot.call(chart, {
-  data: data,
+  data: data.AUS,
   axis: {
     x: xAxis,
     y: yAxis
