@@ -40,7 +40,7 @@ var line = d3.svg.line()
             })
 
 
-function plotAxes(params){
+function plotAxes(params){//TODO duplicated in ex4
   this.append('g')
       .classed('x axis', true)
       .attr('transform','translate(0,' + height + ')')
@@ -62,7 +62,7 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
         .classed('trendline', true)
         .attr('id', Country + 'line')
         .on('mouseover', function(d, i){
-          d3.selectAll('.trendline').style('stroke-opacity', '.5')
+          d3.selectAll('.trendline').style('stroke-opacity', '.3')
           d3.select(this).style('stroke-opacity', '1')
           if(/\d/.exec(this.id)){//if line is part of a split dataset
             for(var i = 1; i < 4; i++){
@@ -88,7 +88,6 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
 }
 
 plotAxes.call(chart, {
-  data: data.AUS,
   axis: {
     x: xAxis,
     y: yAxis
@@ -96,7 +95,7 @@ plotAxes.call(chart, {
 })
 
 for( var Country in data){
-  plotLine.call(chart, {
+  plotLine.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
     country: Country,
     data: data[Country],
     axis: {
