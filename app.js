@@ -64,6 +64,13 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
         .on('mouseover', function(d, i){
           d3.selectAll('.trendline').style('stroke-opacity', '.5')
           d3.select(this).style('stroke-opacity', '1')
+          if(/\d/.exec(this.id)){//if line is part of a split dataset
+            for(var i = 1; i < 4; i++){
+              var prefix = this.id.split('').splice(0,3).join('')
+            console.log('#' + prefix + i + 'line')
+            d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
+            }
+          }
         })
         .on('mouseout', function(d, i){
           d3.selectAll('.trendline').style('stroke-opacity', '1')
@@ -98,13 +105,4 @@ for( var Country in data){
     }
   })
 }
-
-function reformatYear(year){
-  var ticks = $('.tick').each(function(index, element){
-    console.log(element)
-  })
-
-}
-
-reformatYear()
 

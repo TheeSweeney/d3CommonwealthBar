@@ -304,13 +304,13 @@ var data = {
     {value: 11.1938, year: 2012 },
     {value: 10.8862, year: 2013 },
   ],
-  'FR1': [
+  'FRA1': [
     {value: 6.8996, year: 1980 }
   ],
-  'FR2': [
+  'FRA2': [
     {value: 7.827, year: 1985 }
   ],
-  'FR3': [
+  'FRA3': [
     {value: 8.1623, year: 1990 },
     {value: 8.4044, year: 1991 },
     {value: 8.641, year: 1992 },
