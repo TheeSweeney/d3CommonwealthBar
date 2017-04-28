@@ -46,6 +46,13 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
               .scale(y)
               .orient('left')
+var line = d3.svg.line()
+            .x(function(d){
+              return x(d.rank)
+            })
+            .y(function(d){
+              return y(d.value)
+            })
 function plot(params){
   this.append('g')
       .classed('x axis', true)
@@ -57,25 +64,21 @@ function plot(params){
       .call(params.axis.y)
   
   //enter
-  this.selectAll('.point')
-      .data(params.data)
+  this.selectAll('.trendline')
+      .data([params.data])
       .enter()
-        .append('circle')
-        .classed('point', true)
-        .attr('r', 2)
+        .append('path')
+        .classed('trendline', true)
   //update
-  this.selectAll('.point')
-      .attr('cx', function(d){
-        return x(d.rank)
-      })
-      .attr('cy', function(d){
-        return y(d.value)
+  this.selectAll('.trendline')
+      .attr('d', function(d){
+        return line(d)
       })
   //exit
   this.selectAll('.point')
-      .data(params.data)
+      .data([params.data])
       .exit()
-      .remove();
+      .remove()
 }
 
 plot.call(chart, {
