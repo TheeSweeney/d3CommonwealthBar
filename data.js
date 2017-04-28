@@ -184,7 +184,7 @@ var data = {
     {value: 10.9485, year: 2013 },
     {value: 10.9352, year: 2014 }
   ],
-  'GER': [
+  'GER1': [
     {value: 8.0977, year: 1980 },
     {value: 8.3974, year: 1981 },
     {value: 8.2279, year: 1982 },
@@ -195,8 +195,9 @@ var data = {
     {value: 8.4799, year: 1987 },
     {value: 8.6599, year: 1988 },
     {value: 8.0627, year: 1989 },
-    {value: 8.0305, year: 1990 },
-    {value: null, year: 1991 },//handling null will probably involge splitthing germany in two
+    {value: 8.0305, year: 1990 }
+  ],
+  'GER2': [
     {value: 8.9872, year: 1992 },
     {value: 8.9556, year: 1993 },
     {value: 9.1909, year: 1994 },
@@ -296,53 +297,20 @@ var data = {
     {value: 9.2554, year: 2014 }
   ],
   'NZ': [
-    {value: null, year: 1980 },
-    {value: null, year: 1981 },
-    {value: null, year: 1982 },
-    {value: null, year: 1983 },
-    {value: null, year: 1984 },
-    {value: null, year: 1985 },
-    {value: null, year: 1986 },
-    {value: null, year: 1987 },
-    {value: null, year: 1988 },
-    {value: null, year: 1989 },
-    {value: null, year: 1990 },
-    {value: null, year: 1991 },
-    {value: null, year: 1992 },
-    {value: null, year: 1993 },
-    {value: null, year: 1994 },
-    {value: null, year: 1995 },
-    {value: null, year: 1996 },
-    {value: null, year: 1997 },
-    {value: null, year: 1998 },
-    {value: null, year: 1999 },
-    {value: null, year: 2000 },
-    {value: null, year: 2001 },
-    {value: null, year: 2002 },
-    {value: null, year: 2003 },
-    {value: null, year: 2004 },
-    {value: null, year: 2005 },
-    {value: null, year: 2006 },
-    {value: null, year: 2007 },
     {value: 10.5905, year: 2008 },
     {value: 11.1252, year: 2009 },
     {value: 11.0987, year: 2010 },
     {value: 11.0864, year: 2011 },
     {value: 11.1938, year: 2012 },
     {value: 10.8862, year: 2013 },
-    {value: null, year: 2014 }
   ],
-  'FR': [
-    {value: 6.8996, year: 1980 },
-    {value: null, year: 1981 },
-    {value: null, year: 1982 },
-    {value: null, year: 1983 },
-    {value: null, year: 1984 },
-    {value: 7.827, year: 1985 },
-    {value: null, year: 1986 },
-    {value: null, year: 1987 },
-    {value: null, year: 1988 },
-    {value: null, year: 1989 },
+  'FR1': [
+    {value: 6.8996, year: 1980 }
+  ],
+  'FR2': [
+    {value: 7.827, year: 1985 }
+  ],
+  'FR3': [
     {value: 8.1623, year: 1990 },
     {value: 8.4044, year: 1991 },
     {value: 8.641, year: 1992 },
@@ -369,7 +337,13 @@ var data = {
     {value: 11.5889, year: 2013 },
     {value: 11.7564, year: 2014 }
   ],
-  'SWE': [
+  'SWE1': [
+    {value: 11.2635, year: 2011 },
+    {value: 11.4957, year: 2012 },
+    {value: 11.6534, year: 2013 },
+    {value: 11.7127, year: 2014 }
+  ],
+  'SWE2': [
     {value: 8.4021, year: 1980 },
     {value: 8.536, year: 1981 },
     {value: 8.6436, year: 1982 },
@@ -391,19 +365,5 @@ var data = {
     {value: 7.748, year: 1998 },
     {value: 7.8334, year: 1999 },
     {value: 7.7847, year: 2000 },
-    {value: null, year: 2001 },
-    {value: null, year: 2002 },
-    {value: null, year: 2003 },
-    {value: null, year: 2004 },
-    {value: null, year: 2005 },
-    {value: null, year: 2006 },
-    {value: null, year: 2007 },
-    {value: null, year: 2008 },
-    {value: null, year: 2009 },
-    {value: null, year: 2010 },
-    {value: 11.2635, year: 2011 },
-    {value: 11.4957, year: 2012 },
-    {value: 11.6534, year: 2013 },
-    {value: 11.7127, year: 2014 }
   ]
 };

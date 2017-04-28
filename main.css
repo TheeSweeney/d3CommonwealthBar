@@ -24,16 +24,16 @@ body,html{
 #USline{
 	stroke: rgb(162,83,35);
 }
-#FRline{
+#FR1line, #FR2line, #FR3line{
 	stroke:rgb(57,123,122);
 }
-#SWEline{
+#SWE1line, #SWE2line{
 	stroke:rgb(88,191,191);
 }
 #SWZline{
 	stroke:rgb(243,130,61);
 }
-#GERline{
+#GER1line, #GER2line{
 	stroke:rgb(23,85,132);
 }
 #NETHline{

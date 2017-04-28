@@ -51,7 +51,7 @@ function plotAxes(params){
       .call(params.axis.y)
 }
 
-function plotLine(params){
+function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
     //enter
   this.selectAll('.trendline' + params.Country)
       .data([params.data])
