@@ -24,9 +24,7 @@ var x = d3.scale.linear()
           }))
           .range([0, width])
 var y = d3.scale.linear()
-          .domain([0, d3.max(data.US, function(d){
-            return d.value
-          })])
+          .domain([0, 18])
           .range([height, 0])
 var xAxis = d3.svg.axis()
               .scale(x)
@@ -60,6 +58,7 @@ function plotLine(params){
       .enter()
         .append('path')
         .classed('trendline', true)
+        .attr('id', Country + 'line')
   //update
   this.selectAll('.trendline')
       .attr('d', function(d){

@@ -20,3 +20,38 @@ body,html{
 	stroke: #ccc;
 	stroke-width: 4px;
 }
+
+#USline{
+	stroke: rgb(162,83,35);
+}
+#FRline{
+	stroke:rgb(57,123,122);
+}
+#SWEline{
+	stroke:rgb(88,191,191);
+}
+#SWZline{
+	stroke:rgb(243,130,61);
+}
+#GERline{
+	stroke:rgb(23,85,132);
+}
+#NETHline{
+	stroke:rgb(180,138,56);
+}
+#CANline{
+	stroke:rgb(230,198,132);
+}
+#UKline{
+	stroke:rgb(18,57,85);
+}
+#NZline{
+	stroke:rgb(31,127,201);
+}
+#NORline{
+	stroke:rgb(79,116,63);
+}
+#AUSline{
+	stroke:rgb(148,196,128);
+}
+

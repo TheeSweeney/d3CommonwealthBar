@@ -36,7 +36,7 @@ var data = {
     {value: 17.0041, year: 2013 },
     {value: 17.2108, year: 2014 }
   ],
-  'Switzerland': [
+  'SWZ': [
     {value: 6.648, year: 1980 },
     {value: 6.7078, year: 1981 },
     {value: 6.845, year: 1982 },
@@ -110,7 +110,7 @@ var data = {
     {value: 10.23, year: 2013 },
     {value: 10.181, year: 2014 }
   ],
-  'Canada': [
+  'CAN': [
     {value: 6.8979, year: 1980 },
     {value: 7.0913, year: 1981 },
     {value: 7.8825, year: 1982 },
@@ -147,7 +147,7 @@ var data = {
     {value: 10.6425, year: 2013 },
     {value: 10.5004, year: 2014 }
   ],
-  'Netherlands': [
+  'NETH': [
     {value: 6.5979, year: 1980 },
     {value: 6.6896, year: 1981 },
     {value: 6.9173, year: 1982 },
@@ -184,7 +184,7 @@ var data = {
     {value: 10.9485, year: 2013 },
     {value: 10.9352, year: 2014 }
   ],
-  'Germany': [
+  'GER': [
     {value: 8.0977, year: 1980 },
     {value: 8.3974, year: 1981 },
     {value: 8.2279, year: 1982 },
@@ -258,7 +258,7 @@ var data = {
     {value: 8.8356, year: 2013 },
     {value: 9.012, year: 2014 }
   ],
-  'Norway': [
+  'NOR': [
     {value: 5.4097, year: 1980 },
     {value: 5.4404, year: 1981 },
     {value: 5.6398, year: 1982 },
@@ -332,7 +332,7 @@ var data = {
     {value: 10.8862, year: 2013 },
     {value: null, year: 2014 }
   ],
-  'France': [
+  'FR': [
     {value: 6.8996, year: 1980 },
     {value: null, year: 1981 },
     {value: null, year: 1982 },
@@ -369,7 +369,7 @@ var data = {
     {value: 11.5889, year: 2013 },
     {value: 11.7564, year: 2014 }
   ],
-  'Sweden': [
+  'SWE': [
     {value: 8.4021, year: 1980 },
     {value: 8.536, year: 1981 },
     {value: 8.6436, year: 1982 },
