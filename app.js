@@ -19,9 +19,7 @@ var chart = svg.append("g")
       .classed("display", true)
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var x = d3.scale.linear()
-          .domain(d3.extent(data.US, function(d){
-            return d.year
-          }))
+          .domain([1980, 2014])
           .range([0, width])
 var y = d3.scale.linear()
           .domain([0, 18])
@@ -40,6 +38,8 @@ var line = d3.svg.line()
             .y(function(d){
               return y(d.value)
             })
+
+
 function plotAxes(params){
   this.append('g')
       .classed('x axis', true)
@@ -49,6 +49,8 @@ function plotAxes(params){
       .classed('y axis', true)
       .attr('transform','translate(0,0)')
       .call(params.axis.y)
+
+
 }
 
 function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
@@ -59,6 +61,13 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
         .append('path')
         .classed('trendline', true)
         .attr('id', Country + 'line')
+        .on('mouseover', function(d, i){
+          d3.selectAll('.trendline').style('stroke-opacity', '.5')
+          d3.select(this).style('stroke-opacity', '1')
+        })
+        .on('mouseout', function(d, i){
+          d3.selectAll('.trendline').style('stroke-opacity', '1')
+        })
   //update
   this.selectAll('.trendline')
       .attr('d', function(d){
@@ -89,3 +98,13 @@ for( var Country in data){
     }
   })
 }
+
+function reformatYear(year){
+  var ticks = $('.tick').each(function(index, element){
+    console.log(element)
+  })
+
+}
+
+reformatYear()
+
