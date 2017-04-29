@@ -1,5 +1,3 @@
-
-
 var w = 800;
 var h = 450;
 var margin = {
@@ -28,9 +26,18 @@ var xAxis = d3.svg.axis()
               .scale(x)
               .orient('bottom')
               .ticks(12)
+              .tickSize(0)
+              .tickFormat(function(d){
+                return d.toString()
+              })
 var yAxis = d3.svg.axis()
               .scale(y)
               .orient('left')
+var yGridlines = d3.svg.axis()
+                  .scale(y)
+                  .tickSize(-width, 0, 0)
+                  .tickFormat('')
+                  .orient('left')
 var line = d3.svg.line()
             .x(function(d){
               return x(d.year)
@@ -42,12 +49,17 @@ var line = d3.svg.line()
 
 function plotAxes(params){//TODO duplicated in ex4
   this.append('g')
+      .classed('gridline y', true)
+      .attr('transform','translate(0,0)')
+      .call(params.axis.gridlines)
+
+
+  this.append('g')
       .classed('x axis', true)
-      .attr('transform','translate(0,' + height + ')')
+      .attr('transform','translate(0,' + (height + 10)+ ')')
       .call(params.axis.x)
   this.append('g')
       .classed('y axis', true)
-      .attr('transform','translate(0,0)')
       .call(params.axis.y)
 
 
@@ -90,7 +102,8 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
 plotAxes.call(chart, {
   axis: {
     x: xAxis,
-    y: yAxis
+    y: yAxis,
+    gridlines: yGridlines
   }
 })
 

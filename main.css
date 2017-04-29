@@ -9,20 +9,9 @@ body,html{
 	border: 1px solid #CCC;
 }
 
-.grid line {
-  stroke: lightgrey;
-  stroke-opacity: 0.7;
-  shape-rendering: crispEdges;
-}
-
-.grid path {
-  stroke-width: 0;
-}
-
-.axis path,
-.axis line{
+.axis path, .axis line{
 	fill: none;
-	stroke: #000;
+	stroke: none;
 	shape-rendering: crispEdges;
 }
 
@@ -30,6 +19,17 @@ body,html{
 	fill: none;
 	stroke: #ccc;
 	stroke-width: 4px;
+}
+
+
+.gridline line{
+	fill: none;
+	stroke: #ccc;
+	shape-rendering: crispEdges;
+}
+
+.x.axis text, .y.axis text{
+	fill: #ccc;
 }
 
 #USline{
