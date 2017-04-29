@@ -1,10 +1,10 @@
 var w = 800;
 var h = 450;
 var margin = {
-  top: 58,
-  bottom: 100,
-  left: 80,
-  right: 40
+  top: 75,
+  bottom: 75,
+  left: 40,
+  right: 140
 };
 var width = w - margin.left - margin.right;
 var height = h - margin.top - margin.bottom;
@@ -64,8 +64,6 @@ function plotAxes(params){//TODO duplicated in ex4
 
   this.select('.y.axis')//Top Label
         .append('text')
-        .style('font-size', '12px')
-        .style('fill', '#ccc')
         .attr('x', 0)
         .attr('y',-20)
         .text('Percent')
@@ -123,4 +121,6 @@ for( var Country in data){
     }
   })
 }
+
+                  
 

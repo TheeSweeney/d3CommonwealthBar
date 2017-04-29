@@ -28,8 +28,13 @@ body,html{
 	shape-rendering: crispEdges;
 }
 
-.x.axis text, .y.axis text{
+text {
 	fill: #ccc;
+	font-size: 14px;
+}
+
+.bottomAxis {
+	fill: black;
 }
 
 #USline{
