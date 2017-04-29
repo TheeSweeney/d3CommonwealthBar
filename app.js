@@ -62,7 +62,13 @@ function plotAxes(params){//TODO duplicated in ex4
       .classed('y axis', true)
       .call(params.axis.y)
 
-
+  this.select('.y.axis')//Top Label
+        .append('text')
+        .style('font-size', '12px')
+        .style('fill', '#ccc')
+        .attr('x', 0)
+        .attr('y',-20)
+        .text('Percent')
 }
 
 function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
