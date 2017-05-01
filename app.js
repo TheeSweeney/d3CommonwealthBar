@@ -53,7 +53,7 @@ svg.insert('text')//Title
       .attr('x', 20)
       .attr('y', 40)
       .attr('id', 'chartTitle')
-      .html("Health Case Spending as a Percentage of GDP, 1980-2014")
+      .html("Health Care Spending as a Percentage of GDP, 1980-2014")
   
 d3.select('.display')//Note  TODO must be more efficient way to add multiline notes
         .append('text')
@@ -123,28 +123,15 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
       .data(params.data)
       .enter()
         .append('circle')
-        .attr('r', 3)
+        .attr('r', 1.5)
         .classed(Country + 'points point', true)
-        .on('mouseover', function(d, i){
-          d3.selectAll('.point').style('stroke-opacity', '.3')
-          d3.select(this).style('stroke-opacity', '1')
-          if(/\d/.exec(this.id)){//if line is part of a split dataset
-            for(var i = 1; i < 4; i++){
-              var prefix = this.id.split('').splice(0,3).join('')
-            console.log('#' + prefix + i + 'line')
-            d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
-            }
-          }
-        })
-        .on('mouseout', function(d, i){
-          d3.selectAll('.trendline').style('stroke-opacity', '1')
-        })
   //update
   this.selectAll('.trendline')
       .attr('d', function(d){
         return line(d)
       })
   this.selectAll('.point')
+      .style('fill-opacity', '0')//keep the points hidden
       .attr('cx', function(d){
         return x(d.year)
       })
