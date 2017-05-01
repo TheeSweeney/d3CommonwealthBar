@@ -20,10 +20,14 @@ text {
 	shape-rendering: crispEdges;
 }
 
+.tick text{
+	fill: gray;
+}
+
 .trendline{
 	fill: none;
 	stroke: #ccc;
-	stroke-width: 4px;
+	stroke-width: 3px;
 }
 
 .gridline line{
@@ -40,40 +44,70 @@ text {
 #USline{
 	stroke: rgb(162,83,35);
 }
-#FR1line, #FR2line, #FR3line{
+.USpoints{
+	fill: rgb(162,83,35);
+}
+#FRA1line, #FRA2line, #FRA3line{
 	stroke:rgb(57,123,122);
+}
+.FRA1points, .FRA2points, .FRA3points{
+	fill: rgb(57,123,122);	
 }
 #SWE1line, #SWE2line{
 	stroke:rgb(88,191,191);
 }
+.SWE1points, .SWE2points{
+	fill: rgb(88,191,191);	
+}
 #SWZline{
 	stroke:rgb(243,130,61);
+}
+.SWZpoints{
+	fill: rgb(243,130,61);	
 }
 #GER1line, #GER2line{
 	stroke:rgb(23,85,132);
 }
+.GER1points, .GER2points{
+	fill: rgb(23,85,132);	
+}
 #NETHline{
 	stroke:rgb(180,138,56);
+}
+.NETHpoints{
+	fill: rgb(180,138,56);	
 }
 #CANline{
 	stroke:rgb(230,198,132);
 }
+.CANpoints{
+	fill: rgb(230,198,132);	
+}
 #UKline{
 	stroke:rgb(18,57,85);
+}
+.UKpoints{
+	fill: rgb(18,57,85);	
 }
 #NZline{
 	stroke:rgb(31,127,201);
 }
+.NZpoints{
+	fill: rgb(31,127,201);	
+}
 #NORline{
 	stroke:rgb(79,116,63);
+}
+.NORpoints{
+	fill: rgb(79,116,63);	
 }
 #AUSline{
 	stroke:rgb(148,196,128);
 }
-
-.bottomAxis {
-	fill: black;
+.AUSpoints{
+	fill: rgb(148,196,128);	
 }
+
 
 .note{
 	fill: black;
