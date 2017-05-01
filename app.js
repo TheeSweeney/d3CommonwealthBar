@@ -1,10 +1,10 @@
-var w = 800;
-var h = 450;
+var w = 850;
+var h = 500;
 var margin = {
   top: 75,
-  bottom: 75,
+  bottom: 125,
   left: 40,
-  right: 140
+  right: 190
 };
 var width = w - margin.left - margin.right;
 var height = h - margin.top - margin.bottom;
@@ -48,6 +48,29 @@ var line = d3.svg.line()
 
 
 function plotAxes(params){//TODO duplicated in ex4
+  
+  d3.select('.display')//Note  TODO must be more efficient way to add multiline notes
+        .append('text')
+        .classed('note', true)
+        .attr('x', -30)
+        .attr('y', height + 70)
+        .classed('alignLeft', true)
+        .html('GDP refers to gross domestic product.')
+d3.select('.display')//Note
+        .append('text')
+        .classed('note', true)
+        .attr('x', -30)
+        .attr('y', height + 80)
+        .classed('alignLeft', true)
+        .html('Source: OECD Health Data 2016. Note: Australia, Germany, Japan, Netherlands and Switzerland data is for current spending only, and excludes spending on capital formation of health care')
+d3.select('.display')//Note
+        .append('text')
+        .classed('note', true)
+        .attr('x', -30)
+        .attr('y', height + 90)
+        .classed('alignLeft', true)
+        .html('providers.')
+
   this.append('g')
       .classed('gridline y', true)
       .attr('transform','translate(0,0)')

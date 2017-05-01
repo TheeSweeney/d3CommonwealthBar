@@ -71,3 +71,8 @@ text {
 	stroke:rgb(148,196,128);
 }
 
+.note{
+	fill: black;
+	font-size: 10px;
+}
+
