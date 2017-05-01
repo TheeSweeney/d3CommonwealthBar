@@ -9,6 +9,11 @@ body,html{
 	border: 1px solid #CCC;
 }
 
+text {
+	fill: #ccc;
+	font-size: 14px;
+}
+
 .axis path, .axis line{
 	fill: none;
 	stroke: none;
@@ -21,19 +26,14 @@ body,html{
 	stroke-width: 4px;
 }
 
-
 .gridline line{
 	fill: none;
 	stroke: #ccc;
 	shape-rendering: crispEdges;
 }
 
-text {
-	fill: #ccc;
-	font-size: 14px;
-}
-
-.bottomAxis {
+#chartTitle{
+	font-size: 29px;
 	fill: black;
 }
 
@@ -69,6 +69,10 @@ text {
 }
 #AUSline{
 	stroke:rgb(148,196,128);
+}
+
+.bottomAxis {
+	fill: black;
 }
 
 .note{

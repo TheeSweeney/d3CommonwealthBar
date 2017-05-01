@@ -1,7 +1,7 @@
 var w = 850;
-var h = 500;
+var h = 525;
 var margin = {
-  top: 75,
+  top: 100,
   bottom: 125,
   left: 40,
   right: 190
@@ -49,7 +49,13 @@ var line = d3.svg.line()
 
 function plotAxes(params){//TODO duplicated in ex4
   
-  d3.select('.display')//Note  TODO must be more efficient way to add multiline notes
+svg.insert('text')//Title
+      .attr('x', 20)
+      .attr('y', 40)
+      .attr('id', 'chartTitle')
+      .html("Health Case Spending as a Percentage of GDP, 1980-2014")
+  
+d3.select('.display')//Note  TODO must be more efficient way to add multiline notes
         .append('text')
         .classed('note', true)
         .attr('x', -30)
