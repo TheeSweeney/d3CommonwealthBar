@@ -99,6 +99,30 @@ function plotAxes(params){//TODO duplicated in ex4
         .text('Percent')
 }
 
+function mouseOverFade(params){
+  d3.selectAll('.trendline').style('stroke-opacity', '.1')
+    d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
+
+    d3.selectAll('.keyText').style('fill-opacity', '.1')
+    d3.select('#' + params.country + 'keyText' ).style('fill-opacity', '1')
+
+    d3.selectAll('.key').style('fill-opacity', '.1')
+    d3.select('#' + params.country + 'key' ).style('fill-opacity', '1')
+
+    if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
+      for(var i = 1; i < 4; i++){
+        var prefix = this.id.split('').splice(0,3).join('')
+      d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
+      }
+    }
+}
+
+function mouseOutFade(params){
+  d3.selectAll('.trendline').style('stroke-opacity', '1')
+  d3.selectAll('.keyText').style('fill-opacity', '1')
+  d3.selectAll('.key').style('fill-opacity', '1')
+}
+
 var index = 0;
 function plotKey(params){
   if(!params.country.includes('2')){//build lines over
@@ -113,26 +137,10 @@ function plotKey(params){
           .attr('height', 2)
           .attr('width', 12)
           .on('mouseover', function(d, i){
-            d3.selectAll('.trendline').style('stroke-opacity', '.1')
-            d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
-
-            d3.selectAll('.keyText').style('fill-opacity', '.1')
-            d3.select('#' + params.country + 'keyText' ).style('fill-opacity', '1')
-
-            d3.selectAll('.key').style('fill-opacity', '.1')
-            d3.select('#' + params.country + 'key' ).style('fill-opacity', '1')
-
-            if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
-              for(var i = 1; i < 4; i++){
-                var prefix = this.id.split('').splice(0,3).join('')
-              d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
-              }
-            }
+            mouseOverFade.call(this, params);
           })
           .on('mouseout', function(d, i){
-            d3.selectAll('.trendline').style('stroke-opacity', '1')
-            d3.selectAll('.keyText').style('fill-opacity', '1')
-            d3.selectAll('.key').style('fill-opacity', '1')
+            mouseOutFade();
           })
 
     this.selectAll('.keyText' + params.country)
@@ -150,26 +158,10 @@ function plotKey(params){
             return params.country
           })
           .on('mouseover', function(d, i){
-            d3.selectAll('.trendline').style('stroke-opacity', '.1')
-            d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
-
-            d3.selectAll('.keyText').style('fill-opacity', '.1')
-            d3.select('#' + params.country + 'keyText' ).style('fill-opacity', '1')
-
-            d3.selectAll('.key').style('fill-opacity', '.1')
-            d3.select('#' + params.country + 'key' ).style('fill-opacity', '1')
-
-            if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
-              for(var i = 1; i < 4; i++){
-                var prefix = this.id.split('').splice(0,3).join('')
-              d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
-              }
-            }
+            mouseOverFade.call(this, params);
           })
           .on('mouseout', function(d, i){
-            d3.selectAll('.trendline').style('stroke-opacity', '1')
-            d3.selectAll('.keyText').style('fill-opacity', '1')
-            d3.selectAll('.key').style('fill-opacity', '1')
+            mouseOutFade();
           })
 
   
@@ -188,26 +180,10 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
         .classed('trendline', true)
         .attr('id', params.country + 'line')
         .on('mouseover', function(d, i){
-            d3.selectAll('.trendline').style('stroke-opacity', '.1')
-            d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
-
-            d3.selectAll('.keyText').style('fill-opacity', '.1')
-            d3.select('#' + params.country + 'keyText' ).style('fill-opacity', '1')
-
-            d3.selectAll('.key').style('fill-opacity', '.1')
-            d3.select('#' + params.country + 'key' ).style('fill-opacity', '1')
-
-            if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
-              for(var i = 1; i < 4; i++){
-                var prefix = this.id.split('').splice(0,3).join('')
-              d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
-              }
-            }
+            mouseOverFade.call(this, params);
           })
           .on('mouseout', function(d, i){
-            d3.selectAll('.trendline').style('stroke-opacity', '1')
-            d3.selectAll('.keyText').style('fill-opacity', '1')
-            d3.selectAll('.key').style('fill-opacity', '1')
+            mouseOutFade();
           })
     this.selectAll('.points' + params.country)
       .data(params.data)
