@@ -135,11 +135,21 @@ function plotKey(params){
           .attr('y', (index*12) + 5)
           .attr('x', width + 70)
           .text(function(){
+            if(params.country.includes('1')){
+              return params.country.replace('1','')
+            }
             return params.country
           })
           .on('mouseover', function(d, i){
             d3.selectAll('.trendline').style('stroke-opacity', '.1')
             d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
+
+            d3.selectAll('.keyText').style('fill-opacity', '.1')
+            d3.select('#' + params.country + 'keyText' ).style('fill-opacity', '1')
+
+            d3.selectAll('.key').style('fill-opacity', '.1')
+            d3.select('#' + params.country + 'key' ).style('fill-opacity', '1')
+
             if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
               for(var i = 1; i < 4; i++){
                 var prefix = this.id.split('').splice(0,3).join('')
@@ -149,6 +159,8 @@ function plotKey(params){
           })
           .on('mouseout', function(d, i){
             d3.selectAll('.trendline').style('stroke-opacity', '1')
+            d3.selectAll('.keyText').style('fill-opacity', '1')
+            d3.selectAll('.key').style('fill-opacity', '1')
           })
 
   
