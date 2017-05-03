@@ -51,103 +51,103 @@ text {
 	font-size: 12px;
 }
 
-#USline{
+#UnitedStatesline{
 	stroke: rgb(162,83,35);
 }
-#USkey, #USkeyText{
+#UnitedStateskey, #UnitedStateskeyText{
 	fill:  rgb(162,83,35);
 }
-.USpoints{
+.UnitedStatespoints{
 	fill: rgb(162,83,35);
 }
-#FRAline{
+#Franceline{
 	stroke:rgb(57,123,122);
 }
-#FRAkey, #FRAkeyText{
+#Francekey, #FrancekeyText{
 	fill: rgb(57,123,122);
 }
-.FRApoints{
+.Francepoints{
 	fill: rgb(57,123,122);	
 }
-#SWE1line, #SWE2line{
+#Sweden1line, #Sweden2line{
 	stroke:rgb(88,191,191);
 }
-#SWE1key, #SWE1keyText{
+#Sweden1key, #Sweden1keyText{
 	fill: rgb(88,191,191);
 }
-.SWE1points, .SWE2points{
+.Sweden1points, .Sweden2points{
 	fill: rgb(88,191,191);	
 }
-#SWZline{
+#Switzerlandline{
 	stroke:rgb(243,130,61);
 }
-#SWZkey, #SWZkeyText{
+#Switzerlandkey, #SwitzerlandkeyText{
 	fill: rgb(243,130,61);
 }
-.SWZpoints{
+.Switzerlandpoints{
 	fill: rgb(243,130,61);	
 }
-#GER1line, #GER2line{
+#Germany1line, #Germany2line{
 	stroke:rgb(23,85,132);
 }
-#GER1key, #GER1keyText{
+#Germany1key, #Germany1keyText{
 	fill: rgb(23,85,132);
 }
-.GER1points, .GER2points{
+.Germany1points, .Germany2points{
 	fill: rgb(23,85,132);	
 }
-#NETHline{
+#Netherlandsline{
 	stroke:rgb(180,138,56);
 }
-#NETHkey, #NETHkeyText{
+#Netherlandskey, #NetherlandskeyText{
 	fill: rgb(180,138,56);
 }
-.NETHpoints{
+.Netherlandspoints{
 	fill: rgb(180,138,56);	
 }
-#CANline{
+#Canadaline{
 	stroke:rgb(230,198,132);
 }
-#CANkey, #CANkeyText{
+#Canadakey, #CanadakeyText{
 	fill: rgb(230,198,132);
 }
-.CANpoints{
+.Canadapoints{
 	fill: rgb(230,198,132);	
 }
-#UKline{
+#UnitedKingdomline{
 	stroke:rgb(18,57,85);
 }
-#UKkey, #UKkeyText{
+#UnitedKingdomkey, #UnitedKingdomkeyText{
 	fill: rgb(18,57,85);
 }
-.UKpoints{
+.UnitedKingdompoints{
 	fill: rgb(18,57,85);	
 }
-#NZline{
+#NewZealandline{
 	stroke:rgb(31,127,201);
 }
-#NZkey, #NZkeyText{
+#NewZealandkey, #NewZealandkeyText{
 	fill: rgb(31,127,201);
 }
-.NZpoints{
+.NewZealandpoints{
 	fill: rgb(31,127,201);	
 }
-#NORline{
+#Norwayline{
 	stroke:rgb(79,116,63);
 }
-#NORkey, #NORkeyText{
+#Norwaykey, #NorwaykeyText{
 	fill: rgb(79,116,63);
 }
-.NORpoints{
+.Norwaypoints{
 	fill: rgb(79,116,63);	
 }
-#AUSline{
+#Australialine{
 	stroke:rgb(148,196,128);
 }
-#AUSkey, #AUSkeyText{
+#Australiakey, #AustraliakeyText{
 	fill: rgb(148,196,128);
 }
-.AUSpoints{
+.Australiapoints{
 	fill: rgb(148,196,128);	
 }
 

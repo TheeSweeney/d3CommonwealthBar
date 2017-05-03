@@ -1,5 +1,5 @@
 var data = {
-  'US': [
+  'United States': [
     {value: 8.7302, year: 1980 },
     {value: 9.0456, year: 1981 },
     {value: 9.8063, year: 1982 },
@@ -36,7 +36,7 @@ var data = {
     {value: 17.0041, year: 2013 },
     {value: 17.2108, year: 2014 }
   ],
-  'SWZ': [
+  'Switzerland': [
     {value: 6.648, year: 1980 },
     {value: 6.7078, year: 1981 },
     {value: 6.845, year: 1982 },
@@ -73,7 +73,7 @@ var data = {
     {value: 11.1796, year: 2013 },
     {value: 11.3991, year: 2014 }
   ],
-  'UK': [
+  'United Kingdom': [
     {value: 5.3555, year: 1980 },
     {value: 5.5897, year: 1981 },
     {value: 5.4526, year: 1982 },
@@ -110,7 +110,7 @@ var data = {
     {value: 10.23, year: 2013 },
     {value: 10.181, year: 2014 }
   ],
-  'CAN': [
+  'Canada': [
     {value: 6.8979, year: 1980 },
     {value: 7.0913, year: 1981 },
     {value: 7.8825, year: 1982 },
@@ -147,7 +147,7 @@ var data = {
     {value: 10.6425, year: 2013 },
     {value: 10.5004, year: 2014 }
   ],
-  'NETH': [
+  'Netherlands': [
     {value: 6.5979, year: 1980 },
     {value: 6.6896, year: 1981 },
     {value: 6.9173, year: 1982 },
@@ -184,7 +184,7 @@ var data = {
     {value: 10.9485, year: 2013 },
     {value: 10.9352, year: 2014 }
   ],
-  'GER1': [
+  'Germany1': [
     {value: 8.0977, year: 1980 },
     {value: 8.3974, year: 1981 },
     {value: 8.2279, year: 1982 },
@@ -197,7 +197,7 @@ var data = {
     {value: 8.0627, year: 1989 },
     {value: 8.0305, year: 1990 }
   ],
-  'GER2': [
+  'Germany2': [
     {value: 8.9872, year: 1992 },
     {value: 8.9556, year: 1993 },
     {value: 9.1909, year: 1994 },
@@ -222,7 +222,7 @@ var data = {
     {value: 10.9375, year: 2013 },
     {value: 11.0342, year: 2014 }
   ],
-  'AUS': [
+  'Australia': [
     {value: 5.8336, year: 1980 },
     {value: 5.8429, year: 1981 },
     {value: 6.1103, year: 1982 },
@@ -259,7 +259,7 @@ var data = {
     {value: 8.8356, year: 2013 },
     {value: 9.012, year: 2014 }
   ],
-  'NOR': [
+  'Norway': [
     {value: 5.4097, year: 1980 },
     {value: 5.4404, year: 1981 },
     {value: 5.6398, year: 1982 },
@@ -296,7 +296,7 @@ var data = {
     {value: 8.9298, year: 2013 },
     {value: 9.2554, year: 2014 }
   ],
-  'NZ': [
+  'New Zealand': [
     {value: 10.5905, year: 2008 },
     {value: 11.1252, year: 2009 },
     {value: 11.0987, year: 2010 },
@@ -304,7 +304,7 @@ var data = {
     {value: 11.1938, year: 2012 },
     {value: 10.8862, year: 2013 },
   ],
-  'FRA': [
+  'France': [
     {value: 8.1623, year: 1990 },
     {value: 8.4044, year: 1991 },
     {value: 8.641, year: 1992 },
@@ -331,13 +331,13 @@ var data = {
     {value: 11.5889, year: 2013 },
     {value: 11.7564, year: 2014 }
   ],
-  'SWE1': [
+  'Sweden1': [
     {value: 11.2635, year: 2011 },
     {value: 11.4957, year: 2012 },
     {value: 11.6534, year: 2013 },
     {value: 11.7127, year: 2014 }
   ],
-  'SWE2': [
+  'Sweden2': [
     {value: 8.4021, year: 1980 },
     {value: 8.536, year: 1981 },
     {value: 8.6436, year: 1982 },

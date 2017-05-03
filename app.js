@@ -100,14 +100,17 @@ function plotAxes(params){//TODO duplicated in ex4
 }
 
 function mouseOverFade(params){
+  var countryName;
+  params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
+
   d3.selectAll('.trendline').style('stroke-opacity', '.1')
-    d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
+    d3.select('#' + countryName + 'line' ).style('stroke-opacity', '1')
 
     d3.selectAll('.keyText').style('fill-opacity', '.1')
-    d3.select('#' + params.country + 'keyText' ).style('fill-opacity', '1')
+    d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '1')
 
     d3.selectAll('.key').style('fill-opacity', '.1')
-    d3.select('#' + params.country + 'key' ).style('fill-opacity', '1')
+    d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
 
     if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
       for(var i = 1; i < 4; i++){
@@ -125,13 +128,16 @@ function mouseOutFade(params){
 
 var index = 0;
 function plotKey(params){
+  var countryName;
+  params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
   if(!params.country.includes('2')){//build lines over
-    this.selectAll('.key' + params.country)
+
+    this.selectAll('.key' + countryName)
         .data([params.data])
         .enter()
           .append('rect')
           .classed('key', true)
-          .attr('id', params.country + 'key')
+          .attr('id', countryName + 'key')
           .attr('y', index*12)
           .attr('x', width + 50)
           .attr('height', 2)
@@ -143,12 +149,12 @@ function plotKey(params){
             mouseOutFade();
           })
 
-    this.selectAll('.keyText' + params.country)
+    this.selectAll('.keyText' + countryName)
         .data([params.data])
         .enter()
           .append('text')
           .classed('keyText', true)
-          .attr('id', params.country + 'keyText')
+          .attr('id', countryName + 'keyText')
           .attr('y', (index*12) + 5)
           .attr('x', width + 70)
           .text(function(){
@@ -171,26 +177,27 @@ function plotKey(params){
 }
 function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
     
-  
+  var countryName;
+  params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
     //enter
-  this.selectAll('.trendline' + params.country)
-      .data([params.data])
-      .enter()
-        .append('path')
-        .classed('trendline', true)
-        .attr('id', params.country + 'line')
-        .on('mouseover', function(d, i){
-            mouseOverFade.call(this, params);
-          })
-          .on('mouseout', function(d, i){
-            mouseOutFade();
-          })
-    this.selectAll('.points' + params.country)
-      .data(params.data)
-      .enter()
-        .append('circle')
-        .attr('r', 1.5)
-        .classed(Country + 'points point', true)
+  this.selectAll('.trendline' + countryName)
+    .data([params.data])
+    .enter()
+      .append('path')
+      .classed('trendline', true)
+      .attr('id', countryName + 'line')
+      .on('mouseover', function(d, i){
+          mouseOverFade.call(this, params);
+        })
+        .on('mouseout', function(d, i){
+          mouseOutFade();
+        })
+  this.selectAll('.points' + countryName)
+    .data(params.data)
+    .enter()
+      .append('circle')
+      .attr('r', 1.5)
+      .classed(Country + 'points point', true)
   //update
   this.selectAll('.trendline')
       .attr('d', function(d){
