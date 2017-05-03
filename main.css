@@ -45,11 +45,14 @@ text {
 	shape-rendering: crispEdges;
 }
 
+.keyText{
+	font-size: 12px;
+}
+
 #USline{
 	stroke: rgb(162,83,35);
 }
-#USkey{
-	stroke: rgb(162,83,35);
+#USkey, #USkeyText{
 	fill:  rgb(162,83,35);
 }
 .USpoints{
@@ -58,8 +61,7 @@ text {
 #FRAline{
 	stroke:rgb(57,123,122);
 }
-#FRAkey{
-	stroke:rgb(57,123,122);
+#FRAkey, #FRAkeyText{
 	fill: rgb(57,123,122);
 }
 .FRApoints{
@@ -68,8 +70,7 @@ text {
 #SWE1line, #SWE2line{
 	stroke:rgb(88,191,191);
 }
-#SWE1key{
-	stroke:rgb(88,191,191);
+#SWE1key, #SWE1keyText{
 	fill: rgb(88,191,191);
 }
 .SWE1points, .SWE2points{
@@ -78,8 +79,7 @@ text {
 #SWZline{
 	stroke:rgb(243,130,61);
 }
-#SWZkey{
-	stroke:rgb(243,130,61);
+#SWZkey, #SWZkeyText{
 	fill: rgb(243,130,61);
 }
 .SWZpoints{
@@ -88,8 +88,7 @@ text {
 #GER1line, #GER2line{
 	stroke:rgb(23,85,132);
 }
-#GER1key{
-	stroke:rgb(23,85,132);
+#GER1key, #GER1keyText{
 	fill: rgb(23,85,132);
 }
 .GER1points, .GER2points{
@@ -98,8 +97,7 @@ text {
 #NETHline{
 	stroke:rgb(180,138,56);
 }
-#NETHkey{
-	stroke:rgb(180,138,56);
+#NETHkey, #NETHkeyText{
 	fill: rgb(180,138,56);
 }
 .NETHpoints{
@@ -108,8 +106,7 @@ text {
 #CANline{
 	stroke:rgb(230,198,132);
 }
-#CANkey{
-	stroke:rgb(230,198,132);
+#CANkey, #CANkeyText{
 	fill: rgb(230,198,132);
 }
 .CANpoints{
@@ -118,8 +115,7 @@ text {
 #UKline{
 	stroke:rgb(18,57,85);
 }
-#UKkey{
-	stroke:rgb(18,57,85);
+#UKkey, #UKkeyText{
 	fill: rgb(18,57,85);
 }
 .UKpoints{
@@ -128,8 +124,7 @@ text {
 #NZline{
 	stroke:rgb(31,127,201);
 }
-#NZkey{
-	stroke:rgb(31,127,201);
+#NZkey, #NZkeyText{
 	fill: rgb(31,127,201);
 }
 .NZpoints{
@@ -138,8 +133,7 @@ text {
 #NORline{
 	stroke:rgb(79,116,63);
 }
-#NORkey{
-	stroke:rgb(79,116,63);
+#NORkey, #NORkeyText{
 	fill: rgb(79,116,63);
 }
 .NORpoints{
@@ -148,8 +142,7 @@ text {
 #AUSline{
 	stroke:rgb(148,196,128);
 }
-#AUSkey{
-	stroke:rgb(148,196,128);
+#AUSkey, #AUSkeyText{
 	fill: rgb(148,196,128);
 }
 .AUSpoints{

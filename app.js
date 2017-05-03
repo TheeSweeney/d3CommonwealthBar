@@ -108,16 +108,23 @@ function plotKey(params){
           .append('rect')
           .classed('key', true)
           .attr('id', params.country + 'key')
-          .attr('y', index*8)
+          .attr('y', index*11)
           .attr('x', width + 50)
           .attr('height', 2)
           .attr('width', 12)
 
-    this.selectAll('.keyText')
+    this.selectAll('.keyText' + params.country)
+        .data([params.data])
+        .enter()
+          .append('text')
+          .classed('keyText', true)
+          .attr('id', params.country + 'keyText')
+          .attr('y', (index*11) + 5)
+          .attr('x', width + 70)
+          .text(function(){
+            return params.country
+          }) 
 
-    this.selectAll('.key' + params.county)
-        .attr('fill', 'black')
-        .attr('stroke', 'black')
   
     index++;
   }
