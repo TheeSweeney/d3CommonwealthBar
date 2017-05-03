@@ -45,44 +45,45 @@ var line = d3.svg.line()
             .y(function(d){
               return y(d.value)
             })
-
+var linearColorScale = d3.scale.linear()
+                        .domain([0, data.length])
+                        .range(['#4ABDBC','#044C7F']);
 
 function plotAxes(params){//TODO duplicated in ex4
+
   
-svg.insert('text')//Title
-      .attr('x', 20)
-      .attr('y', 40)
-      .attr('id', 'chartTitle')
-      .html("Health Care Spending as a Percentage of GDP, 1980-2014")
+  svg.insert('text')//Title
+    .attr('x', 20)
+    .attr('y', 40)
+    .attr('id', 'chartTitle')
+    .html("Health Care Spending as a Percentage of GDP, 1980-2014")
   
-d3.select('.display')//Note  TODO must be more efficient way to add multiline notes
-        .append('text')
-        .classed('note', true)
-        .attr('x', -30)
-        .attr('y', height + 70)
-        .classed('alignLeft', true)
-        .html('GDP refers to gross domestic product.')
-d3.select('.display')//Note
-        .append('text')
-        .classed('note', true)
-        .attr('x', -30)
-        .attr('y', height + 80)
-        .classed('alignLeft', true)
-        .html('Source: OECD Health Data 2016. Note: Australia, Germany, Japan, Netherlands and Switzerland data is for current spending only, and excludes spending on capital formation of health care')
-d3.select('.display')//Note
-        .append('text')
-        .classed('note', true)
-        .attr('x', -30)
-        .attr('y', height + 90)
-        .classed('alignLeft', true)
-        .html('providers.')
+  d3.select('.display')//Note  TODO must be more efficient way to add multiline notes
+    .append('text')
+    .classed('note', true)
+    .attr('x', -30)
+    .attr('y', height + 70)
+    .classed('alignLeft', true)
+    .html('GDP refers to gross domestic product.')
+  d3.select('.display')//Note
+    .append('text')
+    .classed('note', true)
+    .attr('x', -30)
+    .attr('y', height + 80)
+    .classed('alignLeft', true)
+    .html('Source: OECD Health Data 2016. Note: Australia, Germany, Japan, Netherlands and Switzerland data is for current spending only, and excludes spending on capital formation of health care')
+  d3.select('.display')//Note
+    .append('text')
+    .classed('note', true)
+    .attr('x', -30)
+    .attr('y', height + 90)
+    .classed('alignLeft', true)
+    .html('providers.')
 
   this.append('g')
       .classed('gridline y', true)
       .attr('transform','translate(0,0)')
       .call(params.axis.gridlines)
-
-
   this.append('g')
       .classed('x axis', true)
       .attr('transform','translate(0,' + (height + 10)+ ')')
@@ -98,14 +99,35 @@ d3.select('.display')//Note
         .text('Percent')
 }
 
+var index = 0;
+function plotKey(params){
+  this.selectAll('.key' + params.country)
+      .data([params.data])
+      .enter()
+        .append('rect')
+        .classed('key', true)
+        .attr('id', params.country + 'key')
+        .attr('y', index*8)
+        .attr('x', width + 50)
+        .attr('height', 2)
+        .attr('width', 12)
+
+  console.log(index)
+  this.selectAll('.key' + params.county)
+      .attr('fill', 'black')
+      .attr('stroke', 'black')
+      index++;
+}
 function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
+    
+  
     //enter
-  this.selectAll('.trendline' + params.Country)
+  this.selectAll('.trendline' + params.country)
       .data([params.data])
       .enter()
         .append('path')
         .classed('trendline', true)
-        .attr('id', Country + 'line')
+        .attr('id', params.country + 'line')
         .on('mouseover', function(d, i){
           d3.selectAll('.trendline').style('stroke-opacity', '.3')
           d3.select(this).style('stroke-opacity', '1')
@@ -119,7 +141,7 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
         .on('mouseout', function(d, i){
           d3.selectAll('.trendline').style('stroke-opacity', '1')
         })
-    this.selectAll('.points' + params.Country)
+    this.selectAll('.points' + params.country)
       .data(params.data)
       .enter()
         .append('circle')
@@ -157,7 +179,13 @@ for( var Country in data){
       y: yAxis
     }
   })
+
+  plotKey.call(chart, {
+    country: Country,
+    data: data[Country]
+  })
 }
+
 
                   
 

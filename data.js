@@ -305,12 +305,6 @@ var data = {
     {value: 10.8862, year: 2013 },
   ],
   'FRA1': [
-    {value: 6.8996, year: 1980 }
-  ],
-  'FRA2': [
-    {value: 7.827, year: 1985 }
-  ],
-  'FRA3': [
     {value: 8.1623, year: 1990 },
     {value: 8.4044, year: 1991 },
     {value: 8.641, year: 1992 },
