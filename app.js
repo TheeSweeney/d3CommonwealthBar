@@ -101,22 +101,27 @@ function plotAxes(params){//TODO duplicated in ex4
 
 var index = 0;
 function plotKey(params){
-  this.selectAll('.key' + params.country)
-      .data([params.data])
-      .enter()
-        .append('rect')
-        .classed('key', true)
-        .attr('id', params.country + 'key')
-        .attr('y', index*8)
-        .attr('x', width + 50)
-        .attr('height', 2)
-        .attr('width', 12)
+  if(!params.country.includes('2')){//build lines over
+    this.selectAll('.key' + params.country)
+        .data([params.data])
+        .enter()
+          .append('rect')
+          .classed('key', true)
+          .attr('id', params.country + 'key')
+          .attr('y', index*8)
+          .attr('x', width + 50)
+          .attr('height', 2)
+          .attr('width', 12)
 
-  console.log(index)
-  this.selectAll('.key' + params.county)
-      .attr('fill', 'black')
-      .attr('stroke', 'black')
-      index++;
+    this.selectAll('.keyText')
+
+    this.selectAll('.key' + params.county)
+        .attr('fill', 'black')
+        .attr('stroke', 'black')
+  
+    index++;
+  }
+
 }
 function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
     
