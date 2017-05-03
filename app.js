@@ -112,9 +112,10 @@ function mouseOverFade(params){
     d3.selectAll('.key').style('fill-opacity', '.1')
     d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
 
-    if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
-      for(var i = 1; i < 4; i++){
-        var prefix = this.id.split('').splice(0,3).join('')
+    if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
+      var prefix = countryName.replace('1','').replace('2')
+      for(var i = 1; i < 3; i++){
+        console.log(prefix)
       d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
       }
     }
