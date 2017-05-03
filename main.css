@@ -42,10 +42,12 @@ text {
 }
 
 .key{
+	cursor: default;
 	shape-rendering: crispEdges;
 }
 
 .keyText{
+	cursor: default;
 	font-size: 12px;
 }
 

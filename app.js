@@ -108,10 +108,23 @@ function plotKey(params){
           .append('rect')
           .classed('key', true)
           .attr('id', params.country + 'key')
-          .attr('y', index*11)
+          .attr('y', index*12)
           .attr('x', width + 50)
           .attr('height', 2)
           .attr('width', 12)
+          .on('mouseover', function(d, i){
+            d3.selectAll('.trendline').style('stroke-opacity', '.1')
+            d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
+            if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
+              for(var i = 1; i < 4; i++){
+                var prefix = this.id.split('').splice(0,3).join('')
+              d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
+              }
+            }
+          })
+          .on('mouseout', function(d, i){
+            d3.selectAll('.trendline').style('stroke-opacity', '1')
+          })
 
     this.selectAll('.keyText' + params.country)
         .data([params.data])
@@ -119,11 +132,24 @@ function plotKey(params){
           .append('text')
           .classed('keyText', true)
           .attr('id', params.country + 'keyText')
-          .attr('y', (index*11) + 5)
+          .attr('y', (index*12) + 5)
           .attr('x', width + 70)
           .text(function(){
             return params.country
-          }) 
+          })
+          .on('mouseover', function(d, i){
+            d3.selectAll('.trendline').style('stroke-opacity', '.1')
+            d3.select('#' + params.country + 'line' ).style('stroke-opacity', '1')
+            if(params.country.includes('1') || params.country.includes('2')){//if line is part of a split dataset
+              for(var i = 1; i < 4; i++){
+                var prefix = this.id.split('').splice(0,3).join('')
+              d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
+              }
+            }
+          })
+          .on('mouseout', function(d, i){
+            d3.selectAll('.trendline').style('stroke-opacity', '1')
+          })
 
   
     index++;
@@ -141,7 +167,7 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
         .classed('trendline', true)
         .attr('id', params.country + 'line')
         .on('mouseover', function(d, i){
-          d3.selectAll('.trendline').style('stroke-opacity', '.3')
+          d3.selectAll('.trendline').style('stroke-opacity', '.1')
           d3.select(this).style('stroke-opacity', '1')
           if(/\d/.exec(this.id)){//if line is part of a split dataset
             for(var i = 1; i < 4; i++){
