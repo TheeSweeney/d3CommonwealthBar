@@ -104,21 +104,21 @@ function mouseOverFade(params){
   params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
 
   d3.selectAll('.trendline').style('stroke-opacity', '.1')
-    d3.select('#' + countryName + 'line' ).style('stroke-opacity', '1')
+  d3.select('#' + countryName + 'line' ).style('stroke-opacity', '1')
 
-    d3.selectAll('.keyText').style('fill-opacity', '.1')
-    d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '1')
+  d3.selectAll('.keyText').style('fill-opacity', '.1')
+  d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '1')
 
-    d3.selectAll('.key').style('fill-opacity', '.1')
-    d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
+  d3.selectAll('.key').style('fill-opacity', '.1')
+  d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
 
-    if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
-      var prefix = countryName.replace('1','').replace('2')
-      for(var i = 1; i < 3; i++){
-        console.log(prefix)
-      d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
-      }
+  if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
+    var prefix = countryName.replace('1','').replace('2','')
+    for(var i = 1; i < 3; i++){
+      console.log(prefix + i)
+    d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
     }
+  }
 }
 
 function mouseOutFade(params){
@@ -176,7 +176,7 @@ function plotKey(params){
   }
 
 }
-function plotLine(params){//TODO plot points for countries like FR, with 1 datapoint paths
+function plotLine(params){
     
   var countryName;
   params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
@@ -187,12 +187,15 @@ function plotLine(params){//TODO plot points for countries like FR, with 1 datap
       .append('path')
       .classed('trendline', true)
       .attr('id', countryName + 'line')
-      .on('mouseover', function(d, i){
-          mouseOverFade.call(this, params);
-        })
-        .on('mouseout', function(d, i){
-          mouseOutFade();
-        })
+      // .on('mouseover', function(d, i){
+      //     mouseOverFade.call(this, params);
+      //   })
+      // .on('mouseout', function(d, i){
+      //   mouseOutFade();
+      // })
+      .on('click', function(d,i){
+          mouseOverFade.call(this, params)
+      })
   this.selectAll('.points' + countryName)
     .data(params.data)
     .enter()
