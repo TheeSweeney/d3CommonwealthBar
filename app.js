@@ -102,14 +102,19 @@ function plotAxes(params){//TODO duplicated in ex4
 function mouseOverFade(params, d){
     var countryName;
     params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
-
-    if(!clicked.length) d3.selectAll('.trendline').style('stroke-opacity', '.1')
+    console.log((clicked.length))
+    if(!clicked.length){
+      d3.selectAll('.trendline').style('stroke-opacity', '.1')
+      d3.selectAll('.keyText').style('fill-opacity', '.1')
+      d3.selectAll('.key').style('fill-opacity', '.1')
+    }
+    // if(!clicked.includes(d[0].value)){
+    //   d3.select('#' + countryName + 'line' ).style('stroke-opacity', '.1')
+    //   d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '.1')
+    //   d3.select('#' + countryName + 'key' ).style('fill-opacity', '.1')
+    // }
     d3.select('#' + countryName + 'line' ).style('stroke-opacity', '1')
-
-    if(!clicked.length) d3.selectAll('.keyText').style('fill-opacity', '.1')
     d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '1')
-
-    if(!clicked.length) d3.selectAll('.key').style('fill-opacity', '.1')
     d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
 
     if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
@@ -120,8 +125,8 @@ function mouseOverFade(params, d){
     }
 }
 
-function mouseOutFade(){
-   if(!clicked.length){ 
+function mouseOutFade(d){
+   if(!(clicked.length + 1)){ 
     d3.selectAll('.trendline').style('stroke-opacity', '1')
        d3.selectAll('.keyText').style('fill-opacity', '1')
        d3.selectAll('.key').style('fill-opacity', '1')
@@ -147,16 +152,15 @@ function plotKey(params){
           .attr('height', 2)
           .attr('width', 12)
           .on('mouseover', function(d, i){
-            console.log(!clicked.length, clicked)
-            if(!clicked.length) mouseOverFade.call(this, params);
+            if(!clicked.length) mouseOverFade.call(this, params, d);
           })
           .on('mouseout', function(d, i){
-            mouseOutFade(clicked);
+            mouseOutFade(d);
           })
           .on('click', function(d,i){
-            clicked.includes(d[0].value) ? clicked.push(d[0].value) : clicked.splice(clicked.indexOf(d[0].value), 1);
+            clicked.includes(d[0].value) ? clicked.splice(clicked.indexOf(d[0].value), 1) : clicked.push(d[0].value);
             mouseOverFade.call(this, params, d)
-            console.log(clicked)
+
           })
 
     this.selectAll('.keyText' + countryName)
@@ -174,14 +178,14 @@ function plotKey(params){
             return params.country
           })
           .on('mouseover', function(d, i){
-           console.log(!clicked.length, clicked)
-            if(!clicked.length) mouseOverFade.call(this, params);
+            if(!clicked.length) mouseOverFade.call(this, params, d);
           })
           .on('mouseout', function(d, i){
-            mouseOutFade(clicked);
+            mouseOutFade(d);
           })
           .on('click', function(d,i){
-            clicked.includes(d[0].value) ? clicked.push(d[0].value) : clicked.splice(clicked.indexOf(d[0].value), 1);
+            clicked.includes(d[0].value) ? clicked.splice(clicked.indexOf(d[0].value), 1) : clicked.push(d[0].value);
+            console.log(clicked)
             mouseOverFade.call(this, params, d)
           })
 
