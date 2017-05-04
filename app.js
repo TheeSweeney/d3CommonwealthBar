@@ -99,12 +99,11 @@ function plotAxes(params){//TODO duplicated in ex4
         .text('Percent')
 }
 
-function mouseOverFade(params, d){
+function mouseOverFade(params){
     var countryName;
     params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
 
     if(!clicked.length){
-      console.log('ere')
       d3.selectAll('.trendline').style('stroke-opacity', '.1')
       d3.selectAll('.keyText').style('fill-opacity', '.1')
       d3.selectAll('.key').style('fill-opacity', '.1')
@@ -119,12 +118,11 @@ function mouseOverFade(params, d){
           d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
         }
       }
-    } else if(!clicked.includes(d[0].value)){
+    } else if(!clicked.includes(countryName)){
       d3.select('#' + countryName + 'line' ).style('stroke-opacity', '.1')
       d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '.1')
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '.1')
     } else {
-      console.log('sdf')
       d3.select('#' + countryName + 'line' ).style('stroke-opacity', '1')
       d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '1')
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
@@ -158,13 +156,13 @@ function plotKey(params){
           .attr('height', 2)
           .attr('width', 12)
           .on('mouseover', function(d, i){
-            mouseOverFade.call(this, params, d);
+            mouseOverFade.call(this, params);
           })
           .on('mouseout', function(d, i){
             mouseOutFade(d);
           })
           .on('click', function(d,i){
-            clicked.includes(d[0].value) ? clicked.splice(clicked.indexOf(d[0].value), 1) : clicked.push(d[0].value);
+            clicked.includes(countryName) ? clicked.splice(clicked.indexOf(countryName), 1) : clicked.push(countryName);
             mouseOverFade.call(this, params, d)
           })
 
@@ -183,14 +181,13 @@ function plotKey(params){
             return params.country
           })
           .on('mouseover', function(d, i){
-            mouseOverFade.call(this, params, d);
+            mouseOverFade.call(this, params);
           })
           .on('mouseout', function(d, i){
             mouseOutFade(d);
           })
           .on('click', function(d,i){
-            clicked.includes(d[0].value) ? clicked.splice(clicked.indexOf(d[0].value), 1) : clicked.push(d[0].value);
-            console.log(clicked)
+            clicked.includes(countryName) ? clicked.splice(clicked.indexOf(countryName), 1) : clicked.push(countryName);
             mouseOverFade.call(this, params, d)
           })
 
@@ -211,7 +208,7 @@ function plotLine(params){
       .classed('trendline', true)
       .attr('id', countryName + 'line')
       .on('mouseover', function(d, i){
-            mouseOverFade.call(this, params, d);
+            mouseOverFade.call(this, params);
         })
       .on('mouseout', function(d, i){
         mouseOutFade(clicked);
@@ -222,20 +219,28 @@ function plotLine(params){
     .data(params.data)
     .enter()
       .append('circle')
-      .attr('r', 1.5)
-      .classed(Country + 'points point', true)
+      .attr('r', 3)
+      .classed(countryName + 'points point', true)
   //update
   this.selectAll('.trendline')
       .attr('d', function(d){
         return line(d)
       })
   this.selectAll('.point')
-      .style('fill-opacity', '0')//keep the points hidden
+      .style('fill-opacity', '1')//keep the points hidden
       .attr('cx', function(d){
         return x(d.year)
       })
       .attr('cy', function(d){
         return y(d.value)
+      })
+      .on('mouseover', function(d, i){
+            params.country = d3.select(this)[0][0].classList[0].slice(0, d3.select(this)[0][0].classList[0].length - 6);
+            console.log(params)
+            mouseOverFade.call(this, params);
+        })
+      .on('mouseout', function(d, i){
+        mouseOutFade(clicked);
       })
 }
 
