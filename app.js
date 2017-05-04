@@ -137,6 +137,29 @@ function mouseOutFade(d){
      }
 }
 
+function infoHover(d){
+  this.selectAll('#infoBubble')
+    .data([d])
+    .enter()
+      .append('rect')
+      .attr('x', function(d){
+        return x(d.year) - 50
+      })
+      .attr('y', function(d){
+        return y(d.value) - 50
+      })  
+      .attr('height', 50)
+      .attr('width', 50)
+      .attr('fill', 'white')
+      .attr('stroke', 'black')
+
+}
+
+function infoHoverOut(){
+  console.log(this.selectAll('#infoBubble'))
+      // .remove();
+}
+
 var index = 0;
 var clicked = [];
 function plotKey(params){
@@ -196,7 +219,7 @@ function plotKey(params){
   }
 
 }
-function plotLine(params){
+function plotLineAndPoints(params){
     
   var countryName;
   params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
@@ -234,13 +257,14 @@ function plotLine(params){
       .attr('cy', function(d){
         return y(d.value)
       })
-      .on('mouseover', function(d, i){
+      .on('mouseover', function(d){
             params.country = d3.select(this)[0][0].classList[0].slice(0, d3.select(this)[0][0].classList[0].length - 6);
-            console.log(params)
             mouseOverFade.call(this, params);
+            infoHover.call(chart, d)
         })
-      .on('mouseout', function(d, i){
+      .on('mouseout', function(){
         mouseOutFade(clicked);
+        infoHoverOut.call(chart)
       })
 }
 
@@ -253,7 +277,7 @@ plotAxes.call(chart, {
 })
 
 for( var Country in data){
-  plotLine.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
+  plotLineAndPoints.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
     country: Country,
     data: data[Country],
     axis: {
