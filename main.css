@@ -52,22 +52,22 @@ text {
 }
 
 .infoBubbleData{
-	stroke: black;
+	fill: black;
 }
 
 #infoBubble{
-
+	fill: white;
 }
 
 #infoBubbleYear{
-
+	font-size: 12px;
 }
 
 #infoBubbleGDP{
-
+	font-size: 30px;
 }
 
-#UnitedStatesline{
+#UnitedStatesline, .UnitedStatesInfoBox{
 	stroke: rgb(162,83,35);
 }
 #UnitedStateskey, #UnitedStateskeyText{
@@ -76,7 +76,7 @@ text {
 .UnitedStatespoints{
 	fill: rgb(162,83,35);
 }
-#Franceline{
+#Franceline, .FranceInfoBox{
 	stroke:rgb(57,123,122);
 }
 #Francekey, #FrancekeyText{
@@ -85,7 +85,7 @@ text {
 .Francepoints{
 	fill: rgb(57,123,122);	
 }
-#Sweden1line, #Sweden2line{
+#Sweden1line, #Sweden2line, .Sweden2InfoBox{
 	stroke:rgb(88,191,191);
 }
 #Sweden1key, #Sweden1keyText{
@@ -94,7 +94,7 @@ text {
 .Sweden1points, .Sweden2points{
 	fill: rgb(88,191,191);	
 }
-#Switzerlandline{
+#Switzerlandline, .SwitzerlandInfoBox{
 	stroke:rgb(243,130,61);
 }
 #Switzerlandkey, #SwitzerlandkeyText{
@@ -103,7 +103,7 @@ text {
 .Switzerlandpoints{
 	fill: rgb(243,130,61);	
 }
-#Germany1line, #Germany2line{
+#Germany1line, #Germany2line, .Germany2InfoBox{
 	stroke:rgb(23,85,132);
 }
 #Germany1key, #Germany1keyText{
@@ -112,7 +112,7 @@ text {
 .Germany1points, .Germany2points{
 	fill: rgb(23,85,132);	
 }
-#Netherlandsline{
+#Netherlandsline, .NetherlandsInfoBox{
 	stroke:rgb(180,138,56);
 }
 #Netherlandskey, #NetherlandskeyText{
@@ -121,7 +121,7 @@ text {
 .Netherlandspoints{
 	fill: rgb(180,138,56);	
 }
-#Canadaline{
+#Canadaline, .CanadaInfoBox{
 	stroke:rgb(230,198,132);
 }
 #Canadakey, #CanadakeyText{
@@ -130,7 +130,7 @@ text {
 .Canadapoints{
 	fill: rgb(230,198,132);	
 }
-#UnitedKingdomline{
+#UnitedKingdomline, .UnitedKingdomInfoBox{
 	stroke:rgb(18,57,85);
 }
 #UnitedKingdomkey, #UnitedKingdomkeyText{
@@ -139,7 +139,7 @@ text {
 .UnitedKingdompoints{
 	fill: rgb(18,57,85);	
 }
-#NewZealandline{
+#NewZealandline, .NewZealandInfoBox{
 	stroke:rgb(31,127,201);
 }
 #NewZealandkey, #NewZealandkeyText{
@@ -148,7 +148,7 @@ text {
 .NewZealandpoints{
 	fill: rgb(31,127,201);	
 }
-#Norwayline{
+#Norwayline, .NorwayInfoBox{
 	stroke:rgb(79,116,63);
 }
 #Norwaykey, #NorwaykeyText{
@@ -157,7 +157,7 @@ text {
 .Norwaypoints{
 	fill: rgb(79,116,63);	
 }
-#Australialine{
+#Australialine, .AustraliaInfoBox{
 	stroke:rgb(148,196,128);
 }
 #Australiakey, #AustraliakeyText{

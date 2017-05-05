@@ -137,32 +137,33 @@ function mouseOutFade(d){
      }
 }
 
-function infoHover(d){
+function infoHover(d, country){
   this.selectAll('#infoBubble')
     .data([d])
     .enter()
       .append('rect')
       .attr('x', function(d){
-        return x(d.year) - 80
+        return x(d.year) - 80;
       })
       .attr('y', function(d){
-        return y(d.value) - 60
-      })  
+        return y(d.value) - 60;
+      })
+      .attr('rx', 5)
+      .attr('ry', 5)        
       .attr('height', 50)
       .attr('width', 90)
-      .attr('fill', 'white')
-      .attr('stroke', 'black')
       .attr('id', 'infoBubble')
+      .classed( country + 'InfoBox', true)
 
   this.selectAll('#infoBubbleYear')
     .data([d])
     .enter()
       .append('text')
       .attr('x', function(d){
-        return x(d.year) - 78
+        return x(d.year) - 78;
       })
       .attr('y', function(d){
-        return y(d.value) - 15
+        return y(d.value) - 20;
       })  
       .attr('id', 'infoBubbleYear')
       .text(function(d){
@@ -175,14 +176,15 @@ function infoHover(d){
     .enter()
       .append('text')
       .attr('x', function(d){
-        return x(d.year) - 40
+        return x(d.year) - 50;
       })
       .attr('y', function(d){
-        return y(d.value) - 30
+        console.log(d.value)
+        return y(d.value) - 20;
       })  
       .attr('id', 'infoBubbleGDP')
       .text(function(d){
-        return Math.round(d.value, -2) + '%';
+        return d.value.toString().slice(0,5) + '%';
       })
       .classed('infoBubbleData', true)
 
@@ -298,7 +300,7 @@ function plotLineAndPoints(params){
       .on('mouseover', function(d){
             params.country = d3.select(this)[0][0].classList[0].slice(0, d3.select(this)[0][0].classList[0].length - 6);
             mouseOverFade.call(this, params);
-            infoHover.call(chart, d)
+            infoHover.call(chart, d, params.country)
         })
       .on('mouseout', function(){
         mouseOutFade(clicked);
