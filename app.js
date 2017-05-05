@@ -143,21 +143,59 @@ function infoHover(d){
     .enter()
       .append('rect')
       .attr('x', function(d){
-        return x(d.year) - 50
+        return x(d.year) - 80
       })
       .attr('y', function(d){
-        return y(d.value) - 50
+        return y(d.value) - 60
       })  
       .attr('height', 50)
-      .attr('width', 50)
+      .attr('width', 90)
       .attr('fill', 'white')
       .attr('stroke', 'black')
+      .attr('id', 'infoBubble')
+
+  this.selectAll('#infoBubbleYear')
+    .data([d])
+    .enter()
+      .append('text')
+      .attr('x', function(d){
+        return x(d.year) - 78
+      })
+      .attr('y', function(d){
+        return y(d.value) - 15
+      })  
+      .attr('id', 'infoBubbleYear')
+      .text(function(d){
+        return d.year + ':';
+      })
+      .classed('infoBubbleData', true)
+
+  this.selectAll('#infoBubbleGDP') 
+    .data([d])
+    .enter()
+      .append('text')
+      .attr('x', function(d){
+        return x(d.year) - 40
+      })
+      .attr('y', function(d){
+        return y(d.value) - 30
+      })  
+      .attr('id', 'infoBubbleGDP')
+      .text(function(d){
+        return Math.round(d.value, -2) + '%';
+      })
+      .classed('infoBubbleData', true)
 
 }
 
 function infoHoverOut(){
-  console.log(this.selectAll('#infoBubble'))
-      // .remove();
+  this.selectAll('#infoBubble')
+      .remove();
+  this.selectAll('#infoBubbleGDP')
+      .remove();
+  this.selectAll('#infoBubbleYear')
+      .remove();
+
 }
 
 var index = 0;

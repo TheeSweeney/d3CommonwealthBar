@@ -51,6 +51,22 @@ text {
 	font-size: 12px;
 }
 
+.infoBubbleData{
+	stroke: black;
+}
+
+#infoBubble{
+
+}
+
+#infoBubbleYear{
+
+}
+
+#infoBubbleGDP{
+
+}
+
 #UnitedStatesline{
 	stroke: rgb(162,83,35);
 }
