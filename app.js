@@ -151,7 +151,7 @@ function infoHover(d, country){
       .attr('rx', 5)
       .attr('ry', 5)        
       .attr('height', 50)
-      .attr('width', 90)
+      .attr('width', 135)
       .attr('id', 'infoBubble')
       .classed( country + 'InfoBox', true)
 
@@ -282,7 +282,7 @@ function plotLineAndPoints(params){
     .data(params.data)
     .enter()
       .append('circle')
-      .attr('r', 3)
+      .attr('r', 4)
       .classed(countryName + 'points point', true)
   //update
   this.selectAll('.trendline')
@@ -290,7 +290,7 @@ function plotLineAndPoints(params){
         return line(d)
       })
   this.selectAll('.point')
-      .style('fill-opacity', '1')//keep the points hidden
+      .style('fill-opacity', '0')//keep the points hidden
       .attr('cx', function(d){
         return x(d.year)
       })

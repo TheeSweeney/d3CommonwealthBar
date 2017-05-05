@@ -57,6 +57,7 @@ text {
 
 #infoBubble{
 	fill: white;
+	stroke-width: 3px;
 }
 
 #infoBubbleYear{
