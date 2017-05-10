@@ -107,7 +107,6 @@ function mouseOverFade(params){
         d3.select('#' + prefix + i + 'line').style('stroke-opacity', opacity)
       }
     }
-
     if(!clicked.length){
       d3.selectAll('.trendline').style('stroke-opacity', '.1')
       d3.selectAll('.keyText').style('fill-opacity', '.1')
@@ -121,6 +120,7 @@ function mouseOverFade(params){
         multiLineFade('1');
       }
     } else if(!clicked.includes(countryName)){
+      console.log(clicked)
       d3.select('#' + countryName + 'line' ).style('stroke-opacity', '.1')
       d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '.1')
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '.1')
@@ -140,9 +140,9 @@ function mouseOverFade(params){
 function mouseOutFade(d){
    if(!clicked.length){ 
     d3.selectAll('.trendline').style('stroke-opacity', '1')
-       d3.selectAll('.keyText').style('fill-opacity', '1')
-       d3.selectAll('.key').style('fill-opacity', '1')
-     }
+     d3.selectAll('.keyText').style('fill-opacity', '1')
+     d3.selectAll('.key').style('fill-opacity', '1')
+   }
 }
 
 function removeInfoBox(){
@@ -262,7 +262,14 @@ function plotKey(params){
             mouseOutFade(d);
           })
           .on('click', function(d,i){
-            clicked.includes(countryName) ? clicked.splice(clicked.indexOf(countryName), 1) : clicked.push(countryName);
+            if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
+              countryName = countryName.replace('1','').replace('2','')
+              for(var i = 1; i < 3; i++){
+                clicked.includes(countryName + i.toString()) ? clicked.splice(clicked.indexOf(countryName + i.toString()), 1) : clicked.push(countryName + i.toString());
+              }
+            }else{
+              clicked.includes(countryName) ? clicked.splice(clicked.indexOf(countryName), 1) : clicked.push(countryName);
+            }
             mouseOverFade.call(this, params, d)
           })
 
