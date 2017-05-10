@@ -86,7 +86,7 @@ text {
 .Francepoints{
 	fill: rgb(57,123,122);	
 }
-#Sweden1line, #Sweden2line, .Sweden2InfoBox{
+#Sweden1line, #Sweden2line, .Sweden2InfoBox, .Sweden1InfoBox{
 	stroke:rgb(88,191,191);
 }
 #Sweden1key, #Sweden1keyText{

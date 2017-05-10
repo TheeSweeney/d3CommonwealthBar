@@ -135,14 +135,18 @@ function mouseOutFade(d){
      }
 }
 
-function infoHover(d, country){
-
+function removeInfoBox(){
   this.selectAll('#infoBubble')
       .remove();
   this.selectAll('#infoBubbleGDP')
       .remove();
   this.selectAll('#infoBubbleYear')
       .remove();
+}
+
+function infoHover(d, country){
+
+  removeInfoBox.call(this)
 
   this.selectAll('#infoBubble')
     .data([d])
@@ -214,6 +218,7 @@ function plotKey(params){
           .attr('width', 12)
           .on('mouseover', function(d, i){
             mouseOverFade.call(this, params);
+            removeInfoBox.call(chart);
           })
           .on('mouseout', function(d, i){
             mouseOutFade(d);
@@ -238,6 +243,7 @@ function plotKey(params){
             return params.country
           })
           .on('mouseover', function(d, i){
+            removeInfoBox.call(chart);
             mouseOverFade.call(this, params);
           })
           .on('mouseout', function(d, i){
