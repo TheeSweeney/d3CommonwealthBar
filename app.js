@@ -48,8 +48,6 @@ var line = d3.svg.line()
 
 
 function plotAxes(params){//TODO duplicated in ex4
-
-
   
   svg.insert('text')//Title
     .attr('x', 20)
@@ -337,6 +335,16 @@ function resize(){
 
   this.selectAll('g')//remove axes
       .remove();
+  this.selectAll('.note')//remove notes and header
+      .remove();
+  // this.selectAll('.key')//remove key line
+  //     .remove();
+  // this.selectAll('.keyText')//remove key labels
+  //     .remove();
+  this.selectAll('.trendline')
+      .remove();
+  this.selectAll('.points')
+      .remove();  
   
   plotAxes.call(chart, {
     axis: {
@@ -345,9 +353,25 @@ function resize(){
       gridlines: yGridlines
     }
   })
+
+  for( var Country in data){
+    plotLineAndPoints.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
+      country: Country,
+      data: data[Country],
+      axis: {
+        x: xAxis,
+        y: yAxis
+      }
+    })
+
+    // plotKey.call(chart, {
+    //   country: Country,
+    //   data: data[Country]
+    // })
+  }
 }
 
-plotAxes.call(chart, {
+resize.call(chart, {
   axis: {
     x: xAxis,
     y: yAxis,
@@ -356,14 +380,14 @@ plotAxes.call(chart, {
 })
 
 for( var Country in data){
-  plotLineAndPoints.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
-    country: Country,
-    data: data[Country],
-    axis: {
-      x: xAxis,
-      y: yAxis
-    }
-  })
+  // plotLineAndPoints.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
+  //   country: Country,
+  //   data: data[Country],
+  //   axis: {
+  //     x: xAxis,
+  //     y: yAxis
+  //   }
+  // })
 
   plotKey.call(chart, {
     country: Country,
