@@ -149,7 +149,7 @@ function infoHover(d, country){
     .enter()
       .append('rect')
       .attr('x', function(d){
-        return x(d.year) - 80;
+        return x(d.year) - 30;
       })
       .attr('y', function(d){
         return y(d.value) - 60;
@@ -166,7 +166,7 @@ function infoHover(d, country){
     .enter()
       .append('text')
       .attr('x', function(d){
-        return x(d.year) - 75;
+        return x(d.year) - 25;
       })
       .attr('y', function(d){
         return y(d.value) - 20;
@@ -182,7 +182,7 @@ function infoHover(d, country){
     .enter()
       .append('text')
       .attr('x', function(d){
-        return x(d.year) - 45;
+        return x(d.year) + 5;
       })
       .attr('y', function(d){
         return y(d.value) - 20;
