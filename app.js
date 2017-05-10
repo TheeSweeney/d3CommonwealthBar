@@ -120,7 +120,6 @@ function mouseOverFade(params){
         multiLineFade('1');
       }
     } else if(!clicked.includes(countryName)){
-      console.log(clicked)
       d3.select('#' + countryName + 'line' ).style('stroke-opacity', '.1')
       d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '.1')
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '.1')
@@ -156,58 +155,58 @@ function removeInfoBox(){
 
 function infoHover(d, country){
 
-  console.log(country, clicked)
-
-  removeInfoBox.call(this)
-
-  this.selectAll('#infoBubble')
-    .data([d])
-    .enter()
-      .append('rect')
-      .attr('x', function(d){
-        return x(d.year) - 30;
-      })
-      .attr('y', function(d){
-        return y(d.value) - 60;
-      })
-      .attr('rx', 5)
-      .attr('ry', 5)        
-      .attr('height', 50)
-      .attr('width', 125)
-      .attr('id', 'infoBubble')
-      .classed( country + 'InfoBox', true)
-
-  this.selectAll('#infoBubbleYear')
-    .data([d])
-    .enter()
-      .append('text')
-      .attr('x', function(d){
-        return x(d.year) - 25;
-      })
-      .attr('y', function(d){
-        return y(d.value) - 20;
-      })  
-      .attr('id', 'infoBubbleYear')
-      .text(function(d){
-        return d.year + ':';
-      })
-      .classed('infoBubbleData', true)
-
-  this.selectAll('#infoBubbleGDP') 
-    .data([d])
-    .enter()
-      .append('text')
-      .attr('x', function(d){
-        return x(d.year) + 5;
-      })
-      .attr('y', function(d){
-        return y(d.value) - 20;
-      })  
-      .attr('id', 'infoBubbleGDP')
-      .text(function(d){
-        return d.value.toString().slice(0,4) + '%';
-      })
-      .classed('infoBubbleData', true)
+  if(clicked.length === 0 ||  clicked.includes(country)){
+    removeInfoBox.call(this)
+  
+    this.selectAll('#infoBubble')
+      .data([d])
+      .enter()
+        .append('rect')
+        .attr('x', function(d){
+          return x(d.year) - 30;
+        })
+        .attr('y', function(d){
+          return y(d.value) - 60;
+        })
+        .attr('rx', 5)
+        .attr('ry', 5)        
+        .attr('height', 50)
+        .attr('width', 125)
+        .attr('id', 'infoBubble')
+        .classed( country + 'InfoBox', true)
+  
+    this.selectAll('#infoBubbleYear')
+      .data([d])
+      .enter()
+        .append('text')
+        .attr('x', function(d){
+          return x(d.year) - 25;
+        })
+        .attr('y', function(d){
+          return y(d.value) - 20;
+        })  
+        .attr('id', 'infoBubbleYear')
+        .text(function(d){
+          return d.year + ':';
+        })
+        .classed('infoBubbleData', true)
+  
+    this.selectAll('#infoBubbleGDP') 
+      .data([d])
+      .enter()
+        .append('text')
+        .attr('x', function(d){
+          return x(d.year) + 5;
+        })
+        .attr('y', function(d){
+          return y(d.value) - 20;
+        })  
+        .attr('id', 'infoBubbleGDP')
+        .text(function(d){
+          return d.value.toString().slice(0,4) + '%';
+        })
+        .classed('infoBubbleData', true)
+  }
 
 }
 
