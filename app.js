@@ -333,6 +333,7 @@ function resize(){
                     .tickSize(-width, 0, 0)
                     .tickFormat('')
                     .orient('left')
+  index = 0 //used to plot key/keylabels
 
   d3.select(this.node().parentNode)//resize SVG element
         .attr('height', h + 50)
@@ -342,10 +343,10 @@ function resize(){
       .remove();
   this.selectAll('.note')//remove notes and header
       .remove();
-  // this.selectAll('.key')//remove key line
-  //     .remove();
-  // this.selectAll('.keyText')//remove key labels
-  //     .remove();
+  this.selectAll('.key')//remove key line
+      .remove();
+  this.selectAll('.keyText')//remove key labels
+      .remove();
   this.selectAll('.trendline')
       .remove();
   this.selectAll('.points')
@@ -371,10 +372,10 @@ function resize(){
       }
     })
 
-    // plotKey.call(chart, {
-    //   country: Country,
-    //   data: data[Country]
-    // })
+    plotKey.call(chart, {
+      country: Country,
+      data: data[Country]
+    })
   }
 }
 
@@ -386,21 +387,6 @@ resize.call(chart, {
   }
 })
 
-for( var Country in data){
-  // plotLineAndPoints.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
-  //   country: Country,
-  //   data: data[Country],
-  //   axis: {
-  //     x: xAxis,
-  //     y: yAxis
-  //   }
-  // })
-
-  plotKey.call(chart, {
-    country: Country,
-    data: data[Country]
-  })
-}
 
 window.addEventListener('resize', function(e){
   resize.call(chart)
