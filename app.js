@@ -45,9 +45,7 @@ var line = d3.svg.line()
             .y(function(d){
               return y(d.value)
             })
-var linearColorScale = d3.scale.linear()
-                        .domain([0, data.length])
-                        .range(['#4ABDBC','#044C7F']);
+
 
 function plotAxes(params){//TODO duplicated in ex4
 
@@ -179,7 +177,6 @@ function infoHover(d, country){
         return x(d.year) - 50;
       })
       .attr('y', function(d){
-        console.log(d.value)
         return y(d.value) - 20;
       })  
       .attr('id', 'infoBubbleGDP')
@@ -308,6 +305,36 @@ function plotLineAndPoints(params){
       })
 }
 
+function resize(){
+  w = window.outerWidth - 50;
+  h = .617647 * w - 50;
+
+  width = w - margin.left - margin.right;
+  height = h - margin.top - margin.bottom; 
+
+  x = d3.scale.linear()
+              .domain([1980, 2014])
+              .range([0, width])
+  y = d3.scale.linear()
+              .domain([0, 18])
+              .range([height, 0])
+  xAxis = d3.svg.axis()
+                .scale(x)
+                .orient('bottom')
+                .ticks(12)
+                .tickSize(0)
+                .tickFormat(function(d){
+                  return d.toString()
+                })
+  yAxis = d3.svg.axis()
+                .scale(y)
+                .orient('left')
+
+  d3.select(this.node().parentNode)
+        .attr('height', h + 50)
+        .attr('width', w)
+}
+
 plotAxes.call(chart, {
   axis: {
     x: xAxis,
@@ -332,6 +359,7 @@ for( var Country in data){
   })
 }
 
-
-                  
+window.addEventListener('resize', function(e){
+  resize.call(chart)
+})                  
 
