@@ -101,10 +101,10 @@ function mouseOverFade(params){
     var countryName;
     params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
 
-    function multiLineFade(){
+    function multiLineFade(opacity){
       var prefix = countryName.replace('1','').replace('2','')
       for(var i = 1; i < 3; i++){
-        d3.select('#' + prefix + i + 'line').style('stroke-opacity', '1')
+        d3.select('#' + prefix + i + 'line').style('stroke-opacity', opacity)
       }
     }
 
@@ -118,18 +118,21 @@ function mouseOverFade(params){
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
       
       if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
-        multiLineFade();
+        multiLineFade('1');
       }
     } else if(!clicked.includes(countryName)){
       d3.select('#' + countryName + 'line' ).style('stroke-opacity', '.1')
       d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '.1')
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '.1')
+      if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
+        multiLineFade('.1');
+      }
     } else {
       d3.select('#' + countryName + 'line' ).style('stroke-opacity', '1')
       d3.select('#' + countryName + 'keyText' ).style('fill-opacity', '1')
       d3.select('#' + countryName + 'key' ).style('fill-opacity', '1')
       if(countryName.includes('1') || countryName.includes('2')){//if line is part of a split dataset
-        multiLineFade();
+        multiLineFade('1');
       }
     }
 }
@@ -152,6 +155,8 @@ function removeInfoBox(){
 }
 
 function infoHover(d, country){
+
+  console.log(country, clicked)
 
   removeInfoBox.call(this)
 
