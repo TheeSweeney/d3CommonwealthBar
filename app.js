@@ -49,6 +49,7 @@ var line = d3.svg.line()
 
 function plotAxes(params){//TODO duplicated in ex4
 
+
   
   svg.insert('text')//Title
     .attr('x', 20)
@@ -330,9 +331,20 @@ function resize(){
                 .scale(y)
                 .orient('left')
 
-  d3.select(this.node().parentNode)
+  d3.select(this.node().parentNode)//resize SVG element
         .attr('height', h + 50)
         .attr('width', w)
+
+  this.selectAll('g')//remove axes
+      .remove();
+  
+  plotAxes.call(chart, {
+    axis: {
+      x: xAxis,
+      y: yAxis,
+      gridlines: yGridlines
+    }
+  })
 }
 
 plotAxes.call(chart, {
