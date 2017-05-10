@@ -104,7 +104,7 @@ text {
 .Switzerlandpoints{
 	fill: rgb(243,130,61);	
 }
-#Germany1line, #Germany2line, .Germany2InfoBox{
+#Germany1line, #Germany2line, .Germany2InfoBox, .Germany1InfoBox{
 	stroke:rgb(23,85,132);
 }
 #Germany1key, #Germany1keyText{
