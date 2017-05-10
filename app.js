@@ -2,7 +2,7 @@ var w = 850;
 var h = 525;
 var margin = {
   top: 100,
-  bottom: 125,
+  bottom: 75,
   left: 40,
   right: 190
 };
@@ -45,7 +45,8 @@ var line = d3.svg.line()
             .y(function(d){
               return y(d.value)
             })
-
+var index = 0;//used for positioning key points and labels
+var clicked = [];//used to hold actively clicked lines
 
 function plotAxes(params){//TODO duplicated in ex4
   
@@ -135,6 +136,14 @@ function mouseOutFade(d){
 }
 
 function infoHover(d, country){
+
+  this.selectAll('#infoBubble')
+      .remove();
+  this.selectAll('#infoBubbleGDP')
+      .remove();
+  this.selectAll('#infoBubbleYear')
+      .remove();
+
   this.selectAll('#infoBubble')
     .data([d])
     .enter()
@@ -148,7 +157,7 @@ function infoHover(d, country){
       .attr('rx', 5)
       .attr('ry', 5)        
       .attr('height', 50)
-      .attr('width', 135)
+      .attr('width', 125)
       .attr('id', 'infoBubble')
       .classed( country + 'InfoBox', true)
 
@@ -157,7 +166,7 @@ function infoHover(d, country){
     .enter()
       .append('text')
       .attr('x', function(d){
-        return x(d.year) - 78;
+        return x(d.year) - 75;
       })
       .attr('y', function(d){
         return y(d.value) - 20;
@@ -173,31 +182,20 @@ function infoHover(d, country){
     .enter()
       .append('text')
       .attr('x', function(d){
-        return x(d.year) - 50;
+        return x(d.year) - 45;
       })
       .attr('y', function(d){
         return y(d.value) - 20;
       })  
       .attr('id', 'infoBubbleGDP')
       .text(function(d){
-        return d.value.toString().slice(0,5) + '%';
+        return d.value.toString().slice(0,4) + '%';
       })
       .classed('infoBubbleData', true)
 
 }
 
-function infoHoverOut(){
-  this.selectAll('#infoBubble')
-      .remove();
-  this.selectAll('#infoBubbleGDP')
-      .remove();
-  this.selectAll('#infoBubbleYear')
-      .remove();
 
-}
-
-var index = 0;
-var clicked = [];
 function plotKey(params){
   var countryName;
   params.country.includes(' ') ? countryName = params.country.replace(' ', ''): countryName = params.country
@@ -298,10 +296,6 @@ function plotLineAndPoints(params){
             mouseOverFade.call(this, params);
             infoHover.call(chart, d, params.country)
         })
-      .on('mouseout', function(){
-        mouseOutFade(clicked);
-        infoHoverOut.call(chart)
-      })
 }
 
 function resize(){
