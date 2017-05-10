@@ -328,6 +328,11 @@ function resize(){
   yAxis = d3.svg.axis()
                 .scale(y)
                 .orient('left')
+  yGridlines = d3.svg.axis()
+                    .scale(y)
+                    .tickSize(-width, 0, 0)
+                    .tickFormat('')
+                    .orient('left')
 
   d3.select(this.node().parentNode)//resize SVG element
         .attr('height', h + 50)
@@ -345,7 +350,9 @@ function resize(){
       .remove();
   this.selectAll('.points')
       .remove();  
-  
+  d3.select('#chartTitle')
+      .remove();
+
   plotAxes.call(chart, {
     axis: {
       x: xAxis,
