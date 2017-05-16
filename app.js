@@ -384,7 +384,10 @@ function resize(){
 
     // .attr('transform', 'rotate(45)')
 
-
+    d3.selectAll('.x.axis .tick')[0].forEach(function(tick){
+      var currentTranslate = d3.select(tick).attr('transform')
+      d3.select(tick).attr('transform', currentTranslate + 'rotate(45)')
+    })
 
 
   for( var Country in data){
