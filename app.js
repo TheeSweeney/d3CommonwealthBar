@@ -343,6 +343,7 @@ function resize(){
                 .tickFormat(function(d){
                   return d.toString()
                 })
+
   yAxis = d3.svg.axis()
                 .scale(y)
                 .orient('left')
@@ -352,6 +353,7 @@ function resize(){
                     .tickFormat('')
                     .orient('left')
   index = 0 //used to plot key/keylabels
+
 
   d3.select(this.node().parentNode)//resize SVG element
         .attr('height', h + 50)
@@ -379,6 +381,11 @@ function resize(){
       gridlines: yGridlines
     }
   })
+
+    // .attr('transform', 'rotate(45)')
+
+
+
 
   for( var Country in data){
     plotLineAndPoints.call(chart, {//TODO factor out params obj? somewhat duplicated with plotAxes
